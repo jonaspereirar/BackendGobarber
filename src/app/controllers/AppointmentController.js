@@ -1,4 +1,6 @@
 import * as Yup from 'yup';
+import { startOfHour, parseISO, isBefore } from 'date-fns';
+
 import User from '../models/User';
 import Appointment from '../models/Appointment';
 
@@ -26,6 +28,14 @@ class AppointmentController {
         .json({ error: 'You can only create appointments with providers' });
     }
 
+    // Check hours if 19h30, transf 19h00 hours
+    const hourStart = startOfHour(parseISO(date));
+
+    if (isBefore(hourStart, new Date())) {
+      return res.status(400).json({ error: 'Past dates are not permitted' });
+    }
+
+    // created apointment
     const appointment = await Appointment.create({
       user_id: req.userId,
       provider_id,
