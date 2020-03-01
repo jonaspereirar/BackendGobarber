@@ -39,6 +39,6 @@
     "sequelize-cli": "^5.5.0",
     "sucrase": "^3.10.1"
   },
-  "repository": "git@github.com:jprodrigues1981/BackendGobarber.git",
-  "author": "jprodrigues1981 <jonasprodrigues@gmail.com>"
+  "repository": "git@github.com:jonaspereirar/BackendGobarber.git",
+  "author": "jonaspereirar <jonasprodrigues@gmail.com>"
 }
